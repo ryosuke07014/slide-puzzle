@@ -1,0 +1,7 @@
+#gama-area {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* パズルと完成図の間隔を広めに */
+    margin-top: 20px;
+}
