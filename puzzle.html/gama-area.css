@@ -1,7 +1,32 @@
-#gama-area {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px; /* パズルと完成図の間隔を広めに */
-    margin-top: 20px;
+#game-area {
+display: inline-block;
+position: relative;
+margin-top: 30px;
+}
+
+#puzzle {
+display: grid;
+grid-template-columns: repeat(3, 100px);
+grid-template-rows: repeat(3, 100px);
+gap: 2px;
+width: 306px;
+height: 306px;
+border: 2px solid #333;
+margin: 0 auto;
+}
+
+#goal-container {
+position: absolute;
+top: 0;
+left: 330px; /* ← パズルからの距離をここで調整 */
+text-align: center;
+}
+
+#goal {
+width: 200px;
+height: 200px;
+border: 2px solid #333;
+background-size: cover;
+background-position: center;
+margin-top: 20px;
 }
