@@ -1,0 +1,76 @@
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+}
+
+#thumbnail-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 10px;
+margin-top: 10px;
+}
+
+.thumb {
+width: 80px;
+height: 80px;
+object-fit: cover;
+border: 2px solid #333;
+cursor: pointer;
+transition: transform 0.2s;
+}
+
+.thumb:hover {
+transform: scale(1.1);
+border-color: red;
+}
+
+#game-area {
+display: flex;
+justify-content: center;
+align-items: flex-start;
+margin-top: 30px;
+}
+
+#puzzle {
+display: grid;
+grid-template-columns: repeat(3, 100px); /* ← ピース1個のサイズ */
+grid-template-rows: repeat(3, 100px);
+gap: 2px;
+width: 306px; /* 100×3 + gap */
+height: 306px;
+border: 2px solid #333;
+}
+
+.tile {
+background-size: cover; /* 縦横比を保って枠いっぱいに収める */
+background-position: center; /* 中央基準に配置 */
+cursor: pointer;
+}
+
+.empty {
+background: #eee;
+}
+
+#goal-container {
+margin-left: 15px; /* ← パズルとの距離を調整 */
+text-align: center;
+}
+
+#goal {
+width: 200px;
+height: 200px;
+border: 2px solid #333;
+background-size: cover; /* 完成図も縦横比を保って表示 */
+background-position: center;
+margin-top: 10px;
+}
+
+#timer {
+font-size: 20px;
+margin-top: 10px;
+}
+
+#ranking {
+margin-top: 20px;
+}

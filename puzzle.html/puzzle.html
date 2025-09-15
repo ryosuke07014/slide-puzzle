@@ -31,7 +31,6 @@ border-color: red;
 display: flex;
 justify-content: center;
 align-items: flex-start;
-column-gap: 15px; /* ← パズルと完成図の間隔を狭く */
 margin-top: 30px;
 }
 #puzzle {
@@ -42,16 +41,16 @@ gap: 2px;
 width: 306px;
 height: 306px;
 border: 2px solid #333;
-margin: 0 auto;
 }
 .tile {
-background-size: 300px 300px;
+background-size: 400px 400px;
 cursor: pointer;
 }
 .empty {
 background: #eee;
 }
 #goal-container {
+margin-left: 15px; /* ← パズルとの距離をここで調整 */
 text-align: center;
 }
 #goal {
@@ -60,7 +59,7 @@ height: 200px;
 border: 2px solid #333;
 background-size: cover;
 background-position: center;
-margin: 0 auto;
+margin-top: 10px;
 }
 #timer {
 font-size: 20px;
