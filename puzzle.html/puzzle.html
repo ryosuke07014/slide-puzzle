@@ -31,8 +31,8 @@ border-color: red;
 display: flex;
 justify-content: center;
 align-items: flex-start;
-gap: 20px; /* パズルと完成図の間隔を広めに */
-margin-top: 20px;
+column-gap: 15px; /* ← パズルと完成図の間隔を狭く */
+margin-top: 30px;
 }
 #puzzle {
 display: grid;
@@ -42,7 +42,7 @@ gap: 2px;
 width: 306px;
 height: 306px;
 border: 2px solid #333;
-margin: 0 auto; /* 中央寄せ */
+margin: 0 auto;
 }
 .tile {
 background-size: 300px 300px;
@@ -115,6 +115,7 @@ let imageURL = "";
 let ranking = JSON.parse(localStorage.getItem("ranking") || "[]");
 let gameStarted = false;
 
+// 画像選択時
 function selectImage(path) {
 imageURL = path;
 initPuzzle();
@@ -123,6 +124,7 @@ resetTimer();
 gameStarted = false;
 }
 
+// パズル初期化
 function initPuzzle() {
 puzzle.innerHTML = "";
 tiles = [...Array(8).keys()];
@@ -146,6 +148,7 @@ puzzle.appendChild(div);
 });
 }
 
+// シャッフル
 function shuffle(array) {
 for (let i = array.length - 1; i > 0; i--) {
 const j = Math.floor(Math.random() * (i + 1));
@@ -153,6 +156,7 @@ const j = Math.floor(Math.random() * (i + 1));
 }
 }
 
+// タイルを動かす
 function moveTile(index) {
 const neighbors = [emptyIndex - 1, emptyIndex + 1, emptyIndex - 3, emptyIndex + 3];
 if (!neighbors.includes(index)) return;
@@ -181,6 +185,7 @@ updateRanking();
 }
 }
 
+// パズル描画
 function renderPuzzle() {
 Array.from(puzzle.children).forEach((div, i) => {
 const tile = tiles[i];
@@ -197,6 +202,7 @@ div.style.backgroundPosition = `-${x * 100}px -${y * 100}px`;
 });
 }
 
+// クリア判定
 function checkClear() {
 for (let i = 0; i < 8; i++) {
 if (tiles[i] !== i) return false;
@@ -204,6 +210,7 @@ if (tiles[i] !== i) return false;
 return true;
 }
 
+// タイマー
 function startTimer() {
 stopTimer();
 timer = setInterval(() => {
@@ -223,6 +230,7 @@ seconds = 0;
 timerDisplay.textContent = `経過時間: 0 秒`;
 }
 
+// ランキング更新
 function updateRanking() {
 rankingList.innerHTML = "";
 ranking.forEach(r => {
